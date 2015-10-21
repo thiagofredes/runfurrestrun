@@ -13,6 +13,7 @@ If you crash 2 times or more, mother woolen ball will start running behind you, 
 
 ## Controls
 The **UP** and **DOWN** arrows are used to **change lanes**
+
 The **SPACE** key is used to **jump**.
 
 
