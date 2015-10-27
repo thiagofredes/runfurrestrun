@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour {
 	private float runSpeed;
 	private int goodiePoints;
 
-	
 	void Awake(){
 		myanimator = gameObject.GetComponent<Animator>();
 	}
@@ -80,7 +79,7 @@ public class PlayerController : MonoBehaviour {
 			if(!jumping){
 				if(Input.GetKeyDown (KeyCode.Space)){
 					if(!jumping){
-						AudioSource.PlayClipAtPoint(jump, gameObject.transform.position, 0.25f);
+						AudioSource.PlayClipAtPoint(jump, Camera.main.transform.position, 0.5f);
 						StartCoroutine(Jump());
 					}
 				}
@@ -109,13 +108,13 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.CompareTag("Obstacle")){
 			collisions++;
-			AudioSource.PlayClipAtPoint(hit, gameObject.transform.position, 0.5f);
+			AudioSource.PlayClipAtPoint(hit, Camera.main.transform.position, 1f);
 			Destroy(other.gameObject);
 		}
 		else if(other.gameObject.CompareTag("Goodie")){
 			goodieScore+=100;
 			StartCoroutine(ShowPoints(goodiePoints));
-			AudioSource.PlayClipAtPoint(meow, gameObject.transform.position, 0.5f);
+			AudioSource.PlayClipAtPoint(meow, Camera.main.transform.position, 1f);
 			Destroy(other.gameObject);
 		}
 	}
